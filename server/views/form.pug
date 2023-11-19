@@ -1,0 +1,42 @@
+extends layout 
+block content
+    -data = data || {}
+
+    if errors
+        ul
+            for error in errors
+                li= error.msg
+
+    form(action="/add" method="POST")
+        h2 Add new user: 
+        
+        label(for="name") Name:
+        input(
+            type="text"
+            id="name"
+            name="name"
+            value=data.name
+        )
+
+        label(for="email") Email:
+        input(
+            type="email"
+            id="email"
+            name="email"
+            value=data.email
+        )
+
+        button(type="submit", name="asdf") Submit
+
+    form(action="/id" method="GET")
+        h2 Get user: 
+        
+        label(for="get_id") id:
+        input(
+            type="text"
+            id="get_id"
+            name="get_id"
+            value=data.name
+        )
+
+        button(type="submit", name="get_btn") Get user
